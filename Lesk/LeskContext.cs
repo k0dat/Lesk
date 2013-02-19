@@ -53,8 +53,9 @@ namespace Lesk
 
         public void Apply(ConsumeResult consumeResult)
         {
+            int tokenStartPosition = _position;
             _position += consumeResult.ConsumedLength;
-            Tokens.Add(consumeResult.BuildToken());
+            Tokens.Add(consumeResult.BuildToken(tokenStartPosition));
         }
     }
 }

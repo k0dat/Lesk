@@ -18,10 +18,11 @@ namespace Lesk
 
         public Func<Token> TokenBuilder { get; set; }
 
-        public Token BuildToken()
+        public Token BuildToken(int startPosition)
         {
             var token = TokenBuilder();
             token.Value = Consumed;
+            token.Position = startPosition;
             return token;
         }
     }
